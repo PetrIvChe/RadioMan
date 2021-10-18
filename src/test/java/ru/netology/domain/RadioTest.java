@@ -23,7 +23,7 @@ public class RadioTest {
     //Граничные значения 10
     public void shouldReturnIncreaseVolume10Test() {
         Radio currentV = new Radio();
-        currentV.setCurrentVolume(11);
+        currentV.setCurrentVolume(10);
         currentV.increaseVolume();
         int actual = currentV.getCurrentVolume();
         int expected = 10;
@@ -40,6 +40,35 @@ public class RadioTest {
         int expected = 0;
         assertEquals(expected, actual);
     }
+    @Test
+    //Граничные значения 9
+    public void shouldReturnPrevStation9Test() {
+        Radio currentS = new Radio();
+        currentS.setCurrentStation(8);
+        currentS.prevStation();
+        int actual = currentS.getCurrentStation();
+        int expected = 7;
+        assertEquals(expected, actual);
+    }
 
-
+    @Test
+    //Переход от 0 к 9 станции
+    public void shouldReturnPrev0StationTest() {
+        Radio currentS = new Radio();
+        currentS.setCurrentStation(0);
+        currentS.prev0Station();
+        int actual = currentS.getCurrentStation();
+        int expected = 9;
+        assertEquals(expected, actual);
+    }
+    @Test
+    //Переход от 9 к 0 станции
+    public void shouldReturnPrev9StationTest() {
+        Radio currentS = new Radio();
+        currentS.setCurrentStation(9);
+        currentS.prev9Station();
+        int actual = currentS.getCurrentStation();
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
 }
