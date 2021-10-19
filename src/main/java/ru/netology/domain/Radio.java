@@ -42,11 +42,24 @@ public class Radio {
         }
     }
 
-
     //Метод уменьшения звука на 1
     public void decreaseVolume() {
         if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
+        }
+    }
+
+    //Если уровень громкости звука достиг максимального значения, то дальнейшее нажатие на + не должно ни к чему приводить
+    public void maxVolume() {
+        if (currentVolume == 10) {
+            currentVolume = currentVolume;
+        }
+    }
+
+    //Если уровень громкости звука достиг минимального значения, то дальнейшее нажатие на - не должно ни к чему приводить
+    public void minVolume() {
+        if (currentVolume == 0) {
+            currentVolume = currentVolume;
         }
     }
 
@@ -65,6 +78,7 @@ public class Radio {
             currentStation = currentStation - 1;
         }
     }
+
     //Метод переключения станции prev
     //Номер после 0 радиостанции изменяется на 9
     public void prev0Station() {

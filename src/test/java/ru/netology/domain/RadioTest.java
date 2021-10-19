@@ -41,6 +41,28 @@ public class RadioTest {
         assertEquals(expected, actual);
     }
     @Test
+    //Максимальная громкость максимальна
+    public void shouldReturnMaxVolume10Test() {
+        Radio currentV = new Radio();
+        currentV.setCurrentVolume(10);
+        currentV.maxVolume();
+        int actual = currentV.getCurrentVolume();
+        int expected = 10;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    //Минимальная громкость миниимальна
+    public void shouldReturnMinVolume0Test() {
+        Radio currentV = new Radio();
+        currentV.setCurrentVolume(0);
+        currentV.minVolume();
+        int actual = currentV.getCurrentVolume();
+        int expected = 0;
+        assertEquals(expected, actual);
+    }
+
+    @Test
     //Граничные значения 9
     public void shouldReturnPrevStation9Test() {
         Radio currentS = new Radio();
