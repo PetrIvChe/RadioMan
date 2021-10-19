@@ -51,8 +51,9 @@ public class Radio {
 
     //Если уровень громкости звука достиг максимального значения, то дальнейшее нажатие на + не должно ни к чему приводить
     public void maxVolume() {
-        if (currentVolume == 10) {
-            currentVolume = currentVolume;
+        if (currentVolume >= 10) {
+            int maxVolume = 10;
+            currentVolume = maxVolume;
         }
     }
 
@@ -66,6 +67,7 @@ public class Radio {
     //Метод переключения станции next
 //Номер текущей радиостанции изменяется в пределах от 0 до 9
     public void nextStation() {
+        int minSattion = 0;
         if (currentStation < 9) {
             currentStation = currentStation + 1;
         }
@@ -83,7 +85,7 @@ public class Radio {
     //Номер после 0 радиостанции изменяется на 9
     public void prev0Station() {
         int maxStation = 9;
-        if (currentStation == 0) {
+        if (currentStation <= 0) {
             currentStation = maxStation;
         }
     }
