@@ -50,7 +50,7 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>Radiocheck</id>
+                        <id>RadioCheck</id>
                         <goals>
                             <goal>check</goal>
                         </goals>
