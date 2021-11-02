@@ -1,16 +1,30 @@
 package ru.netology.domain;
 
-
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class RadioTest {
 
     @Test
+    public void shouldGet0AndSet11InNextStationMethod() {
+        Radio radio = new Radio();
+        int expected = 0;
+        radio.setCurrentStation(10);
+        assertEquals(expected, radio.getCurrentStation());
+    }
+
+    @Test
+    public void shouldGet0AndSetMinus1InNextStationMethod() {
+        Radio radio = new Radio();
+        int expected = 0;
+        radio.setCurrentStation(-1);
+        assertEquals(expected, radio.getCurrentStation());
+    }
+
+
+    @Test
     //Граничные значения -10
-    public void shouldReturnIncreaseVolumeMinus10Test() {
+    public void shouldReturn1IncreaseVolumeMinus10Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(-10);
         currentV.increaseVolume();
@@ -21,7 +35,7 @@ public class RadioTest {
 
     @Test
     //Граничные значения -1
-    public void shouldReturnIncreaseVolumeMinus1Test() {
+    public void shouldReturn1IncreaseVolumeMinus1Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(-1);
         currentV.increaseVolume();
@@ -32,7 +46,7 @@ public class RadioTest {
 
     @Test
     //Граничные значения 0
-    public void shouldReturnIncreaseVolume0Test() {
+    public void shouldReturn1IncreaseVolume0Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(0);
         currentV.increaseVolume();
@@ -43,7 +57,7 @@ public class RadioTest {
 
     @Test
     //Граничные значения 9
-    public void shouldReturnIncreaseVolume10Test() {
+    public void shouldReturn10IncreaseVolume9Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(9);
         currentV.increaseVolume();
@@ -54,7 +68,7 @@ public class RadioTest {
 
     @Test
     //Граничные значения 10
-    public void shouldReturnIncreaseVolume11Test() {
+    public void shouldReturn10IncreaseVolume10Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(10);
         currentV.increaseVolume();
@@ -65,7 +79,7 @@ public class RadioTest {
 
     @Test
     //Граничные значения 11
-    public void shouldReturnIncreaseVolume12Test() {
+    public void shouldReturn1IncreaseVolume11Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(11);
         currentV.increaseVolume();
@@ -76,7 +90,7 @@ public class RadioTest {
 
     @Test
     //Эквивалентные значения 5
-    public void shouldReturnIncreaseVolume5Test() {
+    public void shouldReturn6IncreaseVolume5Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(5);
         currentV.increaseVolume();
@@ -86,8 +100,8 @@ public class RadioTest {
     }
 
     @Test
-   //Минимальная громкость меньше миниимальной
-    public void shouldReturnMinVolumeMinus1Test() {
+    //Минимальная громкость меньше миниимальной
+    public void shouldReturn0MinVolumeMinus1Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(-1);
         currentV.decreaseVolume();
@@ -98,7 +112,7 @@ public class RadioTest {
 
     @Test
     //Граничные значения 0
-    public void shouldReturnDecreaseVolume0Test() {
+    public void shouldReturn0DecreaseVolume0Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(0);
         currentV.decreaseVolume();
@@ -109,7 +123,7 @@ public class RadioTest {
 
     @Test
     //Граничные значения 10
-    public void shouldReturnDecreaseVolume10Test() {
+    public void shouldReturn9DecreaseVolume10Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(10);
         currentV.decreaseVolume();
@@ -118,9 +132,9 @@ public class RadioTest {
         assertEquals(expected, actual);
     }
 
-        @Test
+    @Test
     //Граничные значения 11
-    public void shouldReturnDecreaseVolume11Test() {
+    public void shouldReturn0DecreaseVolume11Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(11);
         currentV.decreaseVolume();
@@ -131,7 +145,7 @@ public class RadioTest {
 
     @Test
     //Эквивалентные  значения
-    public void shouldReturnDecreaseVolume5Test() {
+    public void shouldReturn4DecreaseVolume5Test() {
         Radio currentV = new Radio();
         currentV.setCurrentVolume(5);
         currentV.decreaseVolume();
@@ -140,12 +154,12 @@ public class RadioTest {
         assertEquals(expected, actual);
     }
 
- // Тесты станций
+    // Тесты станций
 
 
     @Test
     //Следующая станция -11
-    public void shouldReturnNextStationMinus11Test() {
+    public void shouldReturn1NextStationMinus11Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(-11);
         currentS.nextStation();
@@ -156,7 +170,7 @@ public class RadioTest {
 
     @Test
     //Следующая станция minus 1
-    public void shouldReturnNextStationMinus1Test() {
+    public void shouldReturn1NextStationMinus1Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(-1);
         currentS.nextStation();
@@ -164,9 +178,10 @@ public class RadioTest {
         int expected = 1;
         assertEquals(expected, actual);
     }
+
     @Test
     // станция  0
-    public void shouldReturnNextStation0Test() {
+    public void shouldReturn1NextStation0Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(0);
         currentS.nextStation();
@@ -174,9 +189,10 @@ public class RadioTest {
         int expected = 1;
         assertEquals(expected, actual);
     }
+
     @Test
     //станция 1
-    public void shouldReturnNextStation1Test() {
+    public void shouldReturn2NextStation1Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(1);
         currentS.nextStation();
@@ -187,7 +203,7 @@ public class RadioTest {
 
     @Test
     //станция 8
-    public void shouldReturnNextStation8Test() {
+    public void shouldReturn9NextStation8Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(8);
         currentS.nextStation();
@@ -198,7 +214,7 @@ public class RadioTest {
 
     @Test
     //станция 9
-    public void shouldReturnNextStation9Test() {
+    public void shouldReturn0NextStation9Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(9);
         currentS.nextStation();
@@ -207,9 +223,10 @@ public class RadioTest {
         assertEquals(expected, actual);
     }
 
+
     @Test
     //станция 10
-    public void shouldReturnNextStation10Test() {
+    public void shouldReturn1NextStation10Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(10);
         currentS.nextStation();
@@ -220,7 +237,7 @@ public class RadioTest {
 
     @Test
     //станция 11
-    public void shouldReturnNextStation11Test() {
+    public void shouldReturn1NextStation11Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(11);
         currentS.nextStation();
@@ -228,9 +245,10 @@ public class RadioTest {
         int expected = 1;
         assertEquals(expected, actual);
     }
+
     @Test
     //станция от 15
-    public void shouldReturnNextStation15Test() {
+    public void shouldReturn1NextStation15Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(15);
         currentS.nextStation();
@@ -238,9 +256,10 @@ public class RadioTest {
         int expected = 1;
         assertEquals(expected, actual);
     }
+
     @Test
     //Следующая станция от 5 к 6
-    public void shouldReturnNextStation6Test() {
+    public void shouldReturn6NextStation5Test() {
         Radio currentS = new Radio();
         currentS.setCurrentStation(5);
         currentS.nextStation();
@@ -260,6 +279,7 @@ public class RadioTest {
         int expected = 9;
         assertEquals(expected, actual);
     }
+
     @Test
     //10
     public void shouldReturnPrevStation8Test() {
